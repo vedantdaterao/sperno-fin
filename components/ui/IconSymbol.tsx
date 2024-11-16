@@ -1,5 +1,6 @@
 // This file is a fallback for using MaterialIcons on Android and web.
 
+import { IconProps } from '@expo/vector-icons/build/createIconSet';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { SymbolWeight } from 'expo-symbols';
 import React from 'react';
@@ -13,7 +14,7 @@ const MAPPING = {
   'paperplane.fill': 'send',
   'chevron.left.forwardslash.chevron.right': 'code',
   'chevron.right': 'chevron-right',
-  "settings":"settings"
+  'settings.fill': 'settings'
 } as Partial<
   Record<
     import('expo-symbols').SymbolViewProps['name'],
@@ -40,5 +41,5 @@ export function IconSymbol({
   style?: StyleProp<ViewStyle>;
   weight?: SymbolWeight;
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />;
+  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style as any} />;
 }
